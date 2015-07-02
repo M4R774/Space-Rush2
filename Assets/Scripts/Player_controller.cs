@@ -33,9 +33,18 @@ public class Player_controller : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         }
 
-        // Liikuttaa pelaajaa
+		/*Liikuttaa pelaajaa*/
         movex = Input.GetAxis("Horizontal");
         movey = Input.GetAxis("Vertical");
         GetComponent<Rigidbody2D>().velocity = new Vector2(movex * Speed, movey * Speed);
+
+		Touch kosketus = Input.GetTouch (0);
+		float leveys = (float) Screen.width;
+		Vector2 kKohta = new Vector2 ((leveys / 2),0f);
+		if (kosketus.position.x < kKohta.x && Input.touchCount == 1) 
+		{
+			GetComponent<Rigidbody2D>().velocity = new Vector2(Speed * -1, 0);
+		} else if (kosketus.position.x > kKohta.x && Input.touchCount == 1)
+			GetComponent<Rigidbody2D>().velocity = new Vector2(1 * Speed, 0);
     }
 }
