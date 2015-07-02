@@ -2,21 +2,43 @@ Initialize engine version: 5.1.1f1 (2046fc06d4d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 680 (ID=0x1180)
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
     Vendor:   NVIDIA
-    VRAM:     1990 MB
+    VRAM:     3072 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading D:\Program Files (D)\Unity\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.036 seconds
-desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+Platform assembly: D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.031 seconds
+desktop: 1920x1080 144Hz; virtual: 3840x1241 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Projekti\Space-Rush2\SpaceRush2_Data\Managed\System.dll (this message is harmless)
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1715)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 11.533067 ms
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 400)
+
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 230.
+Total: 0.512873 ms (FindLiveObjects: 0.031012 ms CreateObjectMapping: 0.033645 ms MarkObjects: 0.432124 ms  DeleteObjects: 0.014921 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
