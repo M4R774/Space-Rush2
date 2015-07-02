@@ -31,6 +31,12 @@ public class MainMenuScript : MonoBehaviour {
 	public void StartLevel() {
 		Application.LoadLevel (1);
 	}
+	public void Back() {
+		Application.LoadLevel (0);
+	}
+	public void Next() {
+		Application.LoadLevel (2);
+	}
 
 	public void ExitGame () {
 		Application.Quit ();
