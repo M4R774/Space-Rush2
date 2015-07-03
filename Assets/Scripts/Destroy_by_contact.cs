@@ -13,7 +13,6 @@ public class Destroy_by_contact : MonoBehaviour
             return;
         }
         Instantiate(explosion, transform.position, transform.rotation);
-
         Destroy(other.gameObject);
         Destroy(gameObject);
     }
