@@ -10,12 +10,9 @@ public class MapController : MonoBehaviour {
 	private int width = Screen.width;
 
 	// Use this for initialization
-	void Awake () {
+	void Awake () 
+	{
 
-		Vector3 start = new Vector3 ();
-		Vector3 end = new Vector3 ();
-
-		lRenderer = GetComponent<LineRenderer> ();
 		
 	}
 	
