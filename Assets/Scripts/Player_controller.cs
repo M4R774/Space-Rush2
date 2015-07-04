@@ -21,9 +21,13 @@ public class Player_controller : MonoBehaviour
 
     // Ampumismuuttujia
     public GameObject shot;
-    public Transform shotSpawn;
+    public Transform shotSpawnMiddle;
+	public Transform shotSpawnLeft;
+	public Transform shotSpawnRight;
     public float fireRate;
-    private float nextFire;
+    private float nextFireLeft = 0.0f;
+	private float nextFireRight = 1.0f;
+	private float nextFireMiddle = 2.0f;
 
     // Use this for initialization
     void Start()
@@ -35,11 +39,23 @@ public class Player_controller : MonoBehaviour
     void Update()
     {
         // Ampuu
-        if (Time.time > nextFire)
+        if (Time.time > nextFireLeft)
         {
-            nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            nextFireLeft = Time.time + fireRate;
+            Instantiate(shot, shotSpawnLeft.position, shotSpawnLeft.rotation);
         }
+
+		if (Time.time > nextFireRight)
+		{
+			nextFireRight = Time.time + fireRate;
+			Instantiate(shot, shotSpawnRight.position, shotSpawnRight.rotation);
+		}
+
+		if (Time.time > nextFireMiddle)
+		{
+			nextFireMiddle = Time.time + fireRate;
+			Instantiate(shot, shotSpawnMiddle.position, shotSpawnMiddle.rotation);
+		}
 
 		// Rajaa pelaajan liikkeen pelialueelle
 		GetComponent<Rigidbody2D>().position = new Vector2 
