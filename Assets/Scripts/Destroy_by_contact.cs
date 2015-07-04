@@ -23,7 +23,7 @@ public class Destroy_by_contact : MonoBehaviour
 			Destroy(gameObject);
 		}
 		// Jos tagi on boundary tai pelaaja niin älä tuhoa
-        if (other.tag == "Boundary" || other.tag == "Player")
+        if (other.tag == "Boundary" || other.tag == "Player" || other.tag == "star" || other.tag == "hazards")
         {
             return;
         }
