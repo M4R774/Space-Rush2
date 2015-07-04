@@ -13,11 +13,15 @@ public class Player_Ability : MonoBehaviour {
 	void Update () 
 	{
 		// Kääntää turrettia
-		Transform target = GameObject.FindGameObjectWithTag("hazards").transform;
-		Quaternion rotation = Quaternion.LookRotation(target.position - transform.position, transform.TransformDirection(Vector3.back));
-		rotation.x = 0;
-		rotation.y = 0;
-		transform.rotation = rotation;
+		if (GameObject.FindGameObjectWithTag ("hazards")!= null) 
+		{
+			Transform target = GameObject.FindGameObjectWithTag ("hazards").transform;
+			Quaternion rotation = Quaternion.LookRotation(target.position - transform.position, transform.TransformDirection(Vector3.back));
+			rotation.x = 0;
+			rotation.y = 0;
+			transform.rotation = rotation;
+		}
+
 
 		// Ampuu
 		if (Time.time > nextFire)
