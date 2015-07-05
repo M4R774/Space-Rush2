@@ -8,11 +8,10 @@ public class Player_Controller_Main : MonoBehaviour
 	public float Speed = 0f;
 	private float movex = 0f;
 	private float movey = 0f;
-	public float turnSpeed;
-	public float turnTime;
-	/* bool muuttuja joka määrittää sitä mihin suuntaan alus kulkeen. 
+	public float turnSpeed = 10f;
+	/* int muuttuja joka määrittää sitä mihin suuntaan alus kulkeen. 
 	 * Jos pelaaja ei anna inputtia niin mennään aina vasemmalle */
-	public bool goLeft = true;
+	public int goLeft = -1;
 
 	// Use this for initialization
 	void Start()
@@ -32,12 +31,12 @@ public class Player_Controller_Main : MonoBehaviour
 		if (GetComponent<Rigidbody2D> ().position.y < 0) {
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, Speed);
 
-		} else if (GetComponent<Rigidbody2D> ().position.y < 2.75 && GetComponent<Rigidbody2D> ().rotation <= 45) {
+		} else if (GetComponent<Rigidbody2D> ().position.y < 2.75 && GetComponent<Rigidbody2D> ().rotation <= 45 && GetComponent<Rigidbody2D> ().rotation >= -45) {
 			//ebin
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
-			GetComponent<Rigidbody2D> ().angularVelocity = turnSpeed;
+			GetComponent<Rigidbody2D> ().angularVelocity = turnSpeed * goLeft;
 		} else
-			GetComponent<Rigidbody2D> ().angularVelocity = turnSpeed = 0;
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (GetComponent<Rigidbody2D>().position.x + 2.75f * goLeft * -1, GetComponent<Rigidbody2D>().position.y+ 2.75f);
 		
 		// Kosketusnäyttökontrollit
 		// Laskee kosketusten määrän
@@ -56,11 +55,11 @@ public class Player_Controller_Main : MonoBehaviour
 			
 			if (kosketus.position.x < kKohta.x && Input.touchCount == 1) 
 			{
-				goLeft = true;
+				goLeft = -1;
 			} 
 			else if (kosketus.position.x > kKohta.x && Input.touchCount == 1)
 			{
-				goLeft = false;
+				goLeft = 1;
 			}
 		}
 	}
