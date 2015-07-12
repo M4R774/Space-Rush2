@@ -29,7 +29,7 @@ public class MainMenuScript : MonoBehaviour {
 	}
 
 	public void StartLevel() {
-		Application.LoadLevel (1);
+		Application.LoadLevel ("Main");
 	}
 	public void Back() {
 		Application.LoadLevel (0);

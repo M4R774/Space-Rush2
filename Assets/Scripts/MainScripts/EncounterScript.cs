@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public class EncounterScript : MonoBehaviour {
 
 	private string encounterName;
-	private string[] scenes = {"Asteroid_battle", "DefaultScene"};
+	private string[] scenes = {"Asteroid_battle", "Store"};
 
 	// Use this for initialization
 	void Awake () 

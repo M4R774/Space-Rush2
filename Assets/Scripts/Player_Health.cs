@@ -4,19 +4,19 @@ using UnityEngine.UI;
 
 public class Player_Health : MonoBehaviour 
 {
-	public float startHealth;
-	public float currentHealth;
 	public Slider Health_slider;
 
-	void Awake ()
+	public void Start()
 	{
-		currentHealth = startHealth;
+		Health_slider.value = PlayerData.data.health;
 	}
 
 	public void TakeDamage (float damage)
 	{
-		currentHealth -= damage;
-		Health_slider.value = currentHealth;
+		PlayerData.data.health -= damage;
+		Health_slider.value = PlayerData.data.health;
 	}
+
+
 
 }

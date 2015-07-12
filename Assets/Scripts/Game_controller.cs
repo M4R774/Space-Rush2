@@ -9,15 +9,24 @@ public class Game_controller : MonoBehaviour {
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
+	public float kesto = 5f;
+
+	private float lopetusAika; 
 
 	// Use this for initialization
 	void Start () {
+		lopetusAika = Time.time + kesto;
         StartCoroutine(SpawnWaves());
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (Time.time > lopetusAika) 
+		{
+			Application.LoadLevel("Main");
+		}
 	
 	}
 

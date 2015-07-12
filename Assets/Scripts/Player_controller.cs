@@ -17,6 +17,7 @@ public class Player_controller : MonoBehaviour
     private float movex = 0f;
     private float movey = 0f;
 
+
 	public Boundary boundary;
 
     // Ampumismuuttujia
@@ -25,14 +26,16 @@ public class Player_controller : MonoBehaviour
 	public Transform shotSpawnLeft;
 	public Transform shotSpawnRight;
     public float fireRate;
-    private float nextFireLeft = 0.0f;
-	private float nextFireRight = 1.0f;
-	private float nextFireMiddle = 2.0f;
+    private float nextFireLeft;
+	private float nextFireRight;
+	private float nextFireMiddle;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-
+		nextFireLeft = Time.time + 0.0f;
+		nextFireRight = Time.time + 1.0f;
+		nextFireMiddle = Time.time + 2.0f;
     }
 
     // Update is called once per frame
