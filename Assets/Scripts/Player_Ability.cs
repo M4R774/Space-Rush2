@@ -14,7 +14,7 @@ public class Player_Ability : MonoBehaviour {
 	void Update () 
 	{
 		// Kääntää turrettia
-		if (GameObject.FindGameObjectWithTag ("hazards")!= null) 
+		if (GameObject.FindGameObjectWithTag ("hazards")!= null && target == null) 
 		{
 			//jos kohde on null asetetaan uusi kohde nyt turret ei jatkuvasti hae uusia kohteita
 			target = GameObject.FindGameObjectWithTag ("hazards").transform;
@@ -31,6 +31,7 @@ public class Player_Ability : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawnLeft.position, shotSpawnLeft.rotation);
 			Instantiate(shot, shotSpawnRight.position, shotSpawnRight.rotation);
+			target = null; // kohdetta on ammuttu ja sen arvo voidaan asettaa nulliksi
 		}
 	}
 }
