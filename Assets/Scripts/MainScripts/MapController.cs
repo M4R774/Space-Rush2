@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 
 [System.Serializable]
-public class LineVector
+public class LineVectors
 {
 	public Vector3 l1e1;
 	public Vector3 l1e2;
@@ -22,17 +22,17 @@ public class MapController : MonoBehaviour {
 	
 	public float speed = 0.01f;
 	public GameObject encouter;
-
-	public LineVector vectors;
-
-	private int height = Screen.height;
-	private int width = Screen.width;
-
+	public GameObject rArrow;
+	public GameObject lArrow;
+	public LineVectors vectors;
 	public Color c1 = Color.red;
-
+	public GameObject player;
 	// Use this for initialization
 	void Awake () {
 		
+		rArrow.SetActive (false);
+		lArrow.SetActive (true);
+
 		GameObject line1 = new GameObject();
 		LineRenderer lineRenderer1 = line1.AddComponent<LineRenderer> ();
 		GameObject line2 = new GameObject ();
@@ -70,6 +70,18 @@ public class MapController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		Player_Controller_Main playerValues = player.GetComponent<Player_Controller_Main> ();
+		if (playerValues.goLeft == 1 && !lArrow.activeSelf) 
+		{
+			rArrow.SetActive(false);
+			lArrow.SetActive(true);
+
+		} else if(playerValues.goLeft == -1 && !rArrow.activeSelf)
+		{
+			lArrow.SetActive(false);
+			rArrow.SetActive(true);
+		} 
 
 	}
 }

@@ -6,12 +6,11 @@ public class Player_Controller_Main : MonoBehaviour
 	
 	// Liikkumismuuttujia
 	public float Speed = 0f;
-	private float movex = 0f;
-	private float movey = 0f;
 	public float turnSpeed = 10f;
 	/* int muuttuja joka määrittää sitä mihin suuntaan alus kulkeen. 
 	 * Jos pelaaja ei anna inputtia niin mennään aina vasemmalle */
-	public int goLeft = -1;
+	public int goLeft = 1;
+
 
 	// Use this for initialization
 	void Start()
@@ -53,13 +52,15 @@ public class Player_Controller_Main : MonoBehaviour
 			float leveys = (float) Screen.width;
 			Vector2 kKohta = new Vector2 ((leveys / 2),0f);
 			
-			if (kosketus.position.x < kKohta.x && Input.touchCount == 1) 
+			if (0 > kosketus.deltaPosition.x && Input.touchCount == 1) 
 			{
-				goLeft = -1;
-			} 
-			else if (kosketus.position.x > kKohta.x && Input.touchCount == 1)
-			{
+				// mennään vasemmalle
 				goLeft = 1;
+			} 
+			else if (0 < kosketus.deltaPosition.x && Input.touchCount == 1)
+			{
+				//mennään oikealle
+				goLeft = -1;
 			}
 		}
 	}
