@@ -30,5 +30,7 @@ public class Destroy_by_contact : MonoBehaviour
         Instantiate(explosion, transform.position, transform.rotation);
         Destroy(other.gameObject);
         Destroy(gameObject);
+		PlayerData.data.score += 10;
+
 	}
 }
