@@ -8,6 +8,9 @@ public class PlayerData : MonoBehaviour {
 	public float health;
 	public int score;
 	public string selectedAbility;
+	public int abilityLevel; 
+	public int scrap;
+
 
 	void Awake()
 	{
