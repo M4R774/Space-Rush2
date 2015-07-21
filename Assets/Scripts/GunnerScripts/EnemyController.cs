@@ -21,12 +21,23 @@ public class EnemyController : MonoBehaviour {
 		BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D> ();
 		collider.size = new Vector2(collider.size.x * colliderMultiplier,
 		                            collider.size.y * colliderMultiplier);
+
+		if (Input.touchCount == 1) 
+		{
+			Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch (0).position);
+			Vector2 touchPos = new Vector2(wp.x, wp.y);
+			if(collider == Physics2D.OverlapPoint(touchPos))
+			{
+				Destroy(gameObject);
+			}
+		}
 	}
 
-	void OnMouseDown () {
+	/*void OnMouseDown () {
 		if (Input.GetMouseButtonDown (0)) 
 		{
 			Destroy(gameObject);
 		}
-	}
+	} */
+
 }
