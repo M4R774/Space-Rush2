@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour {
 	void OnMouseDown () {
 		if (Input.GetMouseButtonDown (0)) 
 		{
-			Debug.Log ("osuma");
+			Destroy(gameObject);
 		}
 	}
 }
