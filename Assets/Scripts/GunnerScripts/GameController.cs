@@ -28,8 +28,11 @@ public class GameController : MonoBehaviour {
 		{
 			Application.LoadLevel("Main");
 		}
-	}
 
+
+		
+	}
+	
 	IEnumerator SpawnWaves()
 	{
 		yield return new WaitForSeconds(startWait);
