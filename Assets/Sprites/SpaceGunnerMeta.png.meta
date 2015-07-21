@@ -1,11 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: f5609221c1d3c2f41b58a38626ac0cb6
-timeCreated: 1437062460
-licenseType: Free
-TextureImporter:
-  fileIDToRecycleName: {}
-=======
 guid: 9a12d2ada16cbb44c9e93c1e415d787d
 timeCreated: 1437062040
 licenseType: Free
@@ -23,7 +16,6 @@ TextureImporter:
     21300018: SpaceGunnerMeta_9
     21300020: SpaceGunnerMeta_10
     21300022: SpaceGunnerMeta_11
->>>>>>> origin/master
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -49,24 +41,15 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-<<<<<<< HEAD
-    filterMode: -1
-    aniso: -1
-=======
     filterMode: 0
     aniso: 16
->>>>>>> origin/master
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> origin/master
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -77,9 +60,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-<<<<<<< HEAD
-    sprites: []
-=======
     sprites:
     - name: SpaceGunnerMeta_0
       rect:
@@ -201,7 +181,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
->>>>>>> origin/master
   spritePackingTag: 
   userData: 
   assetBundleName: 
