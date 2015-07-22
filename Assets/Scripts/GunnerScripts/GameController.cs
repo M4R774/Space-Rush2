@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
 	public float sceneLength = 5f;
 
 	private float endTime;
+	private float initilizationTime;
 
 	// Use this for initialization
 	void Start () {
