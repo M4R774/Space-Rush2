@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
 
 	private float endTime;
 	private float initilizationTime;
+	public Canvas endWin;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,9 @@ public class GameController : MonoBehaviour {
 
 		if (Time.time > endTime) 
 		{
-			Application.LoadLevel("Main");
+
+			endWin.gameObject.SetActive(true);
+			//Application.LoadLevel("Main");
 		}
 
 
