@@ -7,7 +7,7 @@ public class BacktoMain : MonoBehaviour {
 
 	void Start()
 	{
-		destroyedEnemies.text = destroyedEnemies.text + PlayerData.data.enemiesKilled;
+		destroyedEnemies.text = destroyedEnemies.text + " " + PlayerData.data.enemiesKilled;
 	}
 
 	public void BackToMain()
