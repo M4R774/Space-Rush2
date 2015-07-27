@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -13,10 +14,12 @@ public class GameController : MonoBehaviour {
 
 	private float endTime;
 	private float initilizationTime;
+	public Text killedEnemies;
 	public Canvas endWin;
 
 	// Use this for initialization
 	void Start () {
+
 
 		endTime = Time.time + sceneLength;
         StartCoroutine(SpawnWaves());
@@ -28,14 +31,16 @@ public class GameController : MonoBehaviour {
 
 		if (Time.time > endTime) 
 		{
+			/**killedEnemies.text = killedEnemies.text + PlayerData.data.enemiesKilled;
+			endWin.gameObject.SetActive(true); */
+			Application.LoadLevel("GunnerWin");
 
-			endWin.gameObject.SetActive(true);
-			//Application.LoadLevel("Main");
 		}
 
 
 		
 	}
+
 	
 	IEnumerator SpawnWaves()
 	{

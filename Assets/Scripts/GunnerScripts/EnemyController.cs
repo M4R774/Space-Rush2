@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour {
 	public int scoreValue; // kuinka paljon pelaaja saa scorea hirviön tuhoamisesta
 	public Sprite sprite;
 	public float fireRate;
-
 	private float nextFire;
 	private float initalizationTime;
 	private float originalScale; // tähän tallenetaan vihollisen alkuperäinen koko jota käytetään damage todennäköisyyksissä
@@ -48,6 +47,7 @@ public class EnemyController : MonoBehaviour {
 			{
 				PlayerData.data.score += scoreValue;
 				Debug.Log(PlayerData.data.score);
+				//gc.enemyKilled();
 				Destroy(gameObject);
 			}
 		}
@@ -71,6 +71,7 @@ public class EnemyController : MonoBehaviour {
 		{
 			PlayerData.data.score += scoreValue;
 			Debug.Log(PlayerData.data.score);
+			PlayerData.data.enemiesKilled += 1;
 			Destroy(gameObject);
 		}
 	}
