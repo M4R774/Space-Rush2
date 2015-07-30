@@ -31,13 +31,19 @@ public class GameController : MonoBehaviour {
 
 		if (Time.time > endTime) 
 		{
-			/**killedEnemies.text = killedEnemies.text + PlayerData.data.enemiesKilled;
-			endWin.gameObject.SetActive(true); */
+			PlayerData.data.screenType = "win";
+			PlayerData.data.firstEndScreenText = "You survived the encounter";
+			PlayerData.data.secondEndScreenText = "Enemies destroyed: \n" + PlayerData.data.enemiesKilled;
 			Application.LoadLevel("GunnerWin");
 
 		}
 
-
+		if (PlayerData.data.health <= 0) 
+		{
+			PlayerData.data.firstEndScreenText = "You were destroyed";
+			PlayerData.data.secondEndScreenText = "Final Score: \n" + PlayerData.data.score;
+			Application.LoadLevel("GunnerWin");
+		}
 		
 	}
 
