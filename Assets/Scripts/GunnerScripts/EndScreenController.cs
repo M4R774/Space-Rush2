@@ -22,7 +22,7 @@ public class EndScreenController : MonoBehaviour {
 	public void ButtonClicked()
 	{
 		Debug.Log("klikattu");
-		if(PlayerData.data.screenType = "win")
+		if(PlayerData.data.screenType == "win")
 			Application.LoadLevel("Main");
 	}
 }
