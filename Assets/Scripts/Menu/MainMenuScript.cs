@@ -9,6 +9,8 @@ public class MainMenuScript : MonoBehaviour {
 	public Button startText;
 	public Button exitText;
 	public Button optionsText;
+	public Slider musicSlider;
+	public Slider fxSlider;
 	public Text controlButton;
 
 	private bool touchControl = true;
@@ -20,6 +22,8 @@ public class MainMenuScript : MonoBehaviour {
 		optionsText = optionsText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
 		controlButton = controlButton.GetComponent<Text> ();
+		musicSlider = musicSlider.GetComponent<Slider> ();
+		fxSlider = fxSlider.GetComponent<Slider> ();
 		quitMenu.enabled = false; //QuitMenu pelin alkaessa piilossa
 	}
 
@@ -63,10 +67,15 @@ public class MainMenuScript : MonoBehaviour {
 		if (touchControl) {
 			touchControl = false;
 			controlButton.text = "Tilt";
-
 		} else {
 			touchControl = true;
 			controlButton.text = "Touch";
 		}
+		PlayerPrefsX.SetBool("Control", touchControl);
+	}
+
+	public void sliderValueChanged() {
+		PlayerPrefs.SetFloat("music", musicSlider.value);
+		PlayerPrefs.SetFloat("fx", fxSlider.value);
 	}
 }
