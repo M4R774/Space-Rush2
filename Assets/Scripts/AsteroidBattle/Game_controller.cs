@@ -25,7 +25,7 @@ public class Game_controller : MonoBehaviour {
 
 		if (Time.time > lopetusAika) 
 		{
-			Application.LoadLevel("Main");
+			Application.LoadLevel("3LaneMeta");
 		}
 	
 	}
