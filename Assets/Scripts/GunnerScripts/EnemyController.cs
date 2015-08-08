@@ -12,8 +12,10 @@ public class EnemyController : MonoBehaviour {
 	private float initalizationTime;
 	private float originalScale; // tähän tallenetaan vihollisen alkuperäinen koko jota käytetään damage todennäköisyyksissä
 
+	private Vector2 position;
 	private GameObject player;
 	private Player_Health health;
+	private Transform childSprite;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -24,14 +26,28 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
 	
 		initalizationTime = Time.time;
+		// asettaa spriten vakio kokoiseksi
+		childSprite = searchChildren ();
 		gameObject.transform.localScale = new Vector3 (1f, 1f, 1f);
 		originalScale = gameObject.transform.localScale.x;
+	}
+
+	Transform searchChildren()
+	{
+		foreach (Transform child in transform) {
+			print(child.name);
+			if(child.name.Equals("EnemySprite")) {
+				return child;
+			}
+		}
+
+		return null;
 	}
 	
 
 	void Update () {
-		gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * scaleMultiplier,
-		                                              gameObject.transform.localScale.y * scaleMultiplier,
+		childSprite.localScale = new Vector3(childSprite.localScale.x * scaleMultiplier,
+		                                     childSprite.localScale.y * scaleMultiplier,
 		                                              0f);
 		BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D> ();
 		collider.size = new Vector2(collider.size.x * colliderMultiplier,

@@ -2,15 +2,16 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
+
 	public Vector2 startMarker;
 	public Vector2 endMarker;
 	public float speed = 1.0F;
-
-	public float laneWidth;
-	private Vector2 moveDistance;
-	private float startTime;
 	public float journeyLength;
 	public bool moving = false;
+	public float laneWidth;
+
+	private Vector2 moveDistance;
+	private float startTime;
 	private bool moveleft = false;
 
 	void Start() {
