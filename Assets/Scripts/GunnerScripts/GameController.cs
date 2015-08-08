@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
-	public float sceneLength = 5f;
+	public float sceneLength;
 
 	private float endTime;
 	private float initilizationTime;
