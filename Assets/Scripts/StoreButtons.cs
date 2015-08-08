@@ -8,8 +8,6 @@ public class StoreButtons : MonoBehaviour {
 	public Button healer;
 	public Button exit;
 	
-
-
 	public void enableTurret()
 	{
 		PlayerData.data.selectedAbility = "turret";
@@ -22,10 +20,7 @@ public class StoreButtons : MonoBehaviour {
 
 	public void loadMain()
 	{
-		Application.LoadLevel ("Main");
+		Application.LoadLevel ("3LaneMeta");
 	}
-
-
-	
 
 }

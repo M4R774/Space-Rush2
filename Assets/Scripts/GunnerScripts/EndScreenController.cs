@@ -23,6 +23,9 @@ public class EndScreenController : MonoBehaviour {
 	{
 		Debug.Log("klikattu");
 		if(PlayerData.data.screenType == "win")
-			Application.LoadLevel("Main");
+		{
+			Application.LoadLevel("3LaneMeta");
+		}
+		Application.LoadLevel("3LaneMeta");
 	}
 }
