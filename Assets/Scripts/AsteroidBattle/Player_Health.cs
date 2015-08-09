@@ -8,6 +8,7 @@ public class Player_Health : MonoBehaviour
 
 	public void Start()
 	{
+		Health_slider.maxValue = PlayerData.data.maxHealth;
 		Health_slider.value = PlayerData.data.health;
 	}
 

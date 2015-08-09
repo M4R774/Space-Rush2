@@ -13,7 +13,7 @@ public class Player_controller : MonoBehaviour
 {
 
     // Liikkumismuuttujia
-    public float Speed = 0f;
+    public float Speed;
     private float movex = 0f;
     private float movey = 0f;
 
@@ -26,39 +26,42 @@ public class Player_controller : MonoBehaviour
 	public Transform shotSpawnLeft;
 	public Transform shotSpawnRight;
     public float fireRate;
-    private float nextFireLeft;
-	private float nextFireRight;
-	private float nextFireMiddle;
+    private float nextFire;
+	private int weaponCounter = 0;
+
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
-		nextFireLeft = Time.time + 0.0f;
-		nextFireRight = Time.time + 1.0f;
-		nextFireMiddle = Time.time + 2.0f;
+		nextFire = Time.time + fireRate / PlayerData.data.firePower;
+		Speed = PlayerData.data.speed;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Ampuu
-        if (Time.time > nextFireLeft)
+        if (Time.time > nextFire)
         {
-            nextFireLeft = Time.time + fireRate;
-            Instantiate(shot, shotSpawnLeft.position, shotSpawnLeft.rotation);
+			if (weaponCounter == 0)
+			{
+            	Instantiate(shot, shotSpawnLeft.position, shotSpawnLeft.rotation);
+				weaponCounter = 1;
+			}
+			else if (weaponCounter == 1)
+			{
+				Instantiate(shot, shotSpawnMiddle.position, shotSpawnMiddle.rotation);
+				weaponCounter = 2;
+			}
+			else
+			{
+				Instantiate(shot, shotSpawnRight.position, shotSpawnRight.rotation);
+				weaponCounter = 0;
+			}
+
+
+			nextFire = Time.time + fireRate / PlayerData.data.firePower;
         }
-
-		if (Time.time > nextFireRight)
-		{
-			nextFireRight = Time.time + fireRate;
-			Instantiate(shot, shotSpawnRight.position, shotSpawnRight.rotation);
-		}
-
-		if (Time.time > nextFireMiddle)
-		{
-			nextFireMiddle = Time.time + fireRate;
-			Instantiate(shot, shotSpawnMiddle.position, shotSpawnMiddle.rotation);
-		}
 
 		// Rajaa pelaajan liikkeen pelialueelle
 		GetComponent<Rigidbody2D>().position = new Vector2 
@@ -103,9 +106,3 @@ public class Player_controller : MonoBehaviour
 		}
 	}
 }
-
-
-
-
-
-

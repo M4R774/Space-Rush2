@@ -7,18 +7,17 @@ public class Player_Ability : MonoBehaviour
 	public GameObject turret;
 	public GameObject healer; 
 
-	void Awake()
+	void Start()
 	{
 		ability = PlayerData.data.selectedAbility;
 
-
-		if (ability == "turret") 
+		if (ability == "Turret") 
 		{
 			turret.SetActive(true);
 			healer.SetActive(false);
 		}
 
-		if (ability == "healer") 
+		if (ability == "Healer") 
 		{
 			healer.SetActive(true);
 			turret.SetActive(false);

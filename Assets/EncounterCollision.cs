@@ -15,13 +15,17 @@ public class EncounterCollision : MonoBehaviour {
 		{
 			Application.LoadLevel("Asteroid_battle");
 		}
-		if (other.gameObject.name == "RedNeckEncounter(Clone)")
+		else if (other.gameObject.name == "RedNeckEncounter(Clone)")
 		{
 			Application.LoadLevel("Gunner");
 		}
-		if (other.gameObject.name == "KauppaAsemaEncounter(Clone)")
+		else if (other.gameObject.name == "KauppaAsemaEncounter(Clone)")
 		{
 			Application.LoadLevel("Store");
+		}
+		if (other.tag == "encounter")
+		{
+			PlayerData.data.encountersEncountered = PlayerData.data.encountersEncountered + 1;
 		}
 	}
 }

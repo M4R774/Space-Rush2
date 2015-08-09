@@ -11,7 +11,7 @@ public class Healer : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player");
 		Health = Player.GetComponent <Player_Health> ();
 	}
@@ -21,7 +21,7 @@ public class Healer : MonoBehaviour {
 	{
 		if (Time.time > nextHeal)
 		{
-			nextHeal = Time.time + healRate;
+			nextHeal = Time.time + healRate / PlayerData.data.abilityLevel;
 			Health.TakeDamage (-1);
 
 		}

@@ -19,9 +19,9 @@ public class StoreButtons : MonoBehaviour
 	{
 		length = upgrades.Length;
 
-		buttonTexts[0].text = upgrades[Random.Range(0, length - 1)];
-		buttonTexts[1].text = upgrades[Random.Range(0, length - 1)];
-		buttonTexts[2].text = upgrades[Random.Range (0, length - 1)];
+		buttonTexts[0].text = upgrades[Random.Range(0, length)];
+		buttonTexts[1].text = upgrades[Random.Range(0, length)];
+		buttonTexts[2].text = upgrades[Random.Range (0, length)];
 	}
 
 	// TODO napin painaminen
@@ -29,26 +29,34 @@ public class StoreButtons : MonoBehaviour
 	{
 		if (buttonTexts[buttonClicked].text == "Armor upgrade")
 		{
+			PlayerData.data.maxHealth = PlayerData.data.maxHealth + 10;
+			PlayerData.data.health = PlayerData.data.health + 10;
 			Debug.Log("armor");
 		}
 
 		if (buttonTexts[buttonClicked].text == "Engine upgrade")
 		{
+			PlayerData.data.speed = PlayerData.data.speed + 1;
 			Debug.Log("engine");
 		}
 
 		if (buttonTexts[buttonClicked].text == "Firepower upgrade")
 		{
+			PlayerData.data.firePower = PlayerData.data.firePower + 1;
 			Debug.Log("FIREEE!!");
 		}
 
 		if (buttonTexts[buttonClicked].text == "Turret upgrade")
 		{
+			PlayerData.data.selectedAbility = "Turret";
+			PlayerData.data.abilityLevel = PlayerData.data.abilityLevel + 1;
 			Debug.Log("Turret");
 		}
 
 		if (buttonTexts[buttonClicked].text == "RepairBot upgrade")
 		{
+			PlayerData.data.selectedAbility = "Healer";
+			PlayerData.data.abilityLevel = PlayerData.data.abilityLevel + 1;
 			Debug.Log("repair");
 		}
 

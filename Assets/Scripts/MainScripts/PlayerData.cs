@@ -11,7 +11,6 @@ using System.Collections;
 public class PlayerData : MonoBehaviour {
 
 	public static PlayerData data;
-	public int enemiesKilled;
 
 	// Player Stats
 	public float health;
@@ -23,6 +22,8 @@ public class PlayerData : MonoBehaviour {
 	public int abilityLevel;
 
 	public int score;
+	public int enemiesKilled;
+	public int encountersEncountered;
 
 	public string screenType;
 	public string firstEndScreenText;

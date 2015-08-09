@@ -54,7 +54,7 @@ public class MainMenuScript : MonoBehaviour {
 	}
 	
 	public void StartLevel() {
-		Application.LoadLevel ("Main");
+		Application.LoadLevel ("3LaneMeta");
 	}
 	public void Back() {
 		Application.LoadLevel (0);
