@@ -12,11 +12,18 @@ public class PlayerData : MonoBehaviour {
 
 	public static PlayerData data;
 	public int enemiesKilled;
+
+	// Player Stats
 	public float health;
-	public int score;
+	public float maxHealth;
+	public float firePower;
+	public float speed;
+
 	public string selectedAbility;
-	public int abilityLevel; 
-	public int scrap;
+	public int abilityLevel;
+
+	public int score;
+
 	public string screenType;
 	public string firstEndScreenText;
 	public string secondEndScreenText;
