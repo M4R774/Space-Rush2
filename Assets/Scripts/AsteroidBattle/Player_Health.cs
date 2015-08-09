@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Player_Health : MonoBehaviour 
 {
 	public Slider Health_slider;
-	public int maxHealth = 100;
 
 	public void Start()
 	{
@@ -20,9 +19,9 @@ public class Player_Health : MonoBehaviour
 			return;
 		}
 
-		if (PlayerData.data.health - damage > maxHealth)
+		if (PlayerData.data.health - damage > PlayerData.data.maxHealth)
 		{
-			PlayerData.data.health = maxHealth;
+			PlayerData.data.health = PlayerData.data.maxHealth;
 			return;
 		}
 
