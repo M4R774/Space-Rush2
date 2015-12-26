@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 
 
 		endTime = Time.time + sceneLength;
-        StartCoroutine(SpawnWaves());
+     //   StartCoroutine(SpawnWaves());
 
 	}
 	
