@@ -21,15 +21,15 @@ public class PlayerController : MonoBehaviour {
 	}
 	void Update() 
 	{
-
-		if (Input.GetKeyDown("a") && moving == false)
+        // nyt ei liiku jos se on reunalla tai liikkeessä
+		if (Input.GetKeyDown("a") && moving == false && GetComponent<Transform>().position.x > -4)
 		{
 			startTime = Time.time;
 			endMarker = startMarker - moveDistance;
 			moving = true;
 			journeyLength = Vector2.Distance(startMarker, endMarker);
 		}
-		else if (Input.GetKeyDown("d") && moving == false)
+		else if (Input.GetKeyDown("d") && moving == false && GetComponent<Transform>().position.x < 4)
 		{
 			startTime = Time.time;
 			endMarker = startMarker + moveDistance;
@@ -50,14 +50,14 @@ public class PlayerController : MonoBehaviour {
 			float leveys = (float) Screen.width;
 			Vector2 kKohta = new Vector2 ((leveys / 2),0f);
 			
-			if ((kosketus.position.x < kKohta.x && Input.touchCount == 1)) 
+			if ((kosketus.position.x < kKohta.x && Input.touchCount == 1 && GetComponent<Transform>().position.x < 4)) 
 			{
 				startTime = Time.time;
 				endMarker = startMarker - moveDistance;
 				moving = true;
 				journeyLength = Vector3.Distance(startMarker, endMarker);
 			} 
-			else if ((kosketus.position.x > kKohta.x && Input.touchCount == 1 ))
+			else if ((kosketus.position.x > kKohta.x && Input.touchCount == 1 && GetComponent<Transform>().position.x < 4))
 			{
 				startTime = Time.time;
 				endMarker = startMarker + moveDistance;
