@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Game_controller : MonoBehaviour {
 	
@@ -25,8 +26,8 @@ public class Game_controller : MonoBehaviour {
 
 		if (Time.time > lopetusAika) 
 		{
-			Application.LoadLevel("3LaneMeta");
-		}
+            SceneManager.LoadScene("3LaneMeta");
+        }
 	
 	}
 

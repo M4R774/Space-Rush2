@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -34,16 +35,17 @@ public class GameController : MonoBehaviour {
 			PlayerData.data.screenType = "win";
 			PlayerData.data.firstEndScreenText = "You survived the encounter";
 			PlayerData.data.secondEndScreenText = "Enemies destroyed: \n" + PlayerData.data.enemiesKilled;
-			Application.LoadLevel("GunnerWin");
+			SceneManager.LoadScene("GunnerWin");
 
 		}
 
 		if (PlayerData.data.health <= 0) 
 		{
-			PlayerData.data.firstEndScreenText = "You were destroyed";
+            PlayerData.data.screenType = "lose";
+            PlayerData.data.firstEndScreenText = "You were destroyed";
 			PlayerData.data.secondEndScreenText = "Final Score: \n" + PlayerData.data.score;
-			Application.LoadLevel("GunnerWin");
-		}
+            SceneManager.LoadScene("GunnerWin");
+        }
 		
 	}
 
@@ -53,13 +55,13 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds(startWait);
 		while (true)
 		{
-			for (int i = 0; i < hazardCount; i++)
+			for (int i = 0; i < hazardCount * PlayerData.data.encountersEncountered; i++)
 			{
 				GameObject enemy = enemies[Random.Range(0, enemies.Length)];
 				Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), Random.Range(-spawnValues.y, spawnValues.y), spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate(enemy, spawnPosition, spawnRotation);
-				yield return new WaitForSeconds(spawnWait);
+				yield return new WaitForSeconds(spawnWait / PlayerData.data.encountersEncountered);
 			}
 			yield return new WaitForSeconds(waveWait);
 		}

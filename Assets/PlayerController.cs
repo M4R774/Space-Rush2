@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour {
 				journeyLength = Vector3.Distance(startMarker, endMarker);
 			}
 		}
-
 		float distCovered = (Time.time - startTime) * speed;
 		Vector2 newstartMarker = GetComponent<Transform>().position;
 		if (journeyLength > 0)

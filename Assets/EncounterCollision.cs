@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class EncounterCollision : MonoBehaviour {
 
@@ -13,15 +14,15 @@ public class EncounterCollision : MonoBehaviour {
 	{
 		if (other.gameObject.name == "AsteroidEncounter(Clone)")
 		{
-			Application.LoadLevel("Asteroid_battle");
+			SceneManager.LoadScene("Asteroid_battle");
 		}
 		else if (other.gameObject.name == "RedNeckEncounter(Clone)")
 		{
-			Application.LoadLevel("Gunner");
+            SceneManager.LoadScene("Gunner");
 		}
 		else if (other.gameObject.name == "KauppaAsemaEncounter(Clone)")
 		{
-			Application.LoadLevel("Store");
+            SceneManager.LoadScene("Store");
 		}
 		if (other.tag == "encounter")
 		{
