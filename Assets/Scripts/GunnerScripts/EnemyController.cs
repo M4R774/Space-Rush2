@@ -10,18 +10,18 @@ public class EnemyController : MonoBehaviour
     public Sprite sprite;
     public float fireRate;
     private float nextFire;
+    private float health;
     private float initalizationTime;
     private float originalScale; // tähän tallenetaan vihollisen alkuperäinen koko jota käytetään damage todennäköisyyksissä
-
     private Vector2 position;
     private GameObject player;
-    private Player_Health health;
+    private Player_Health playerHealth;
     private Transform childSprite;
     // Use this for initialization
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        health = player.GetComponent<Player_Health>();
+        playerHealth = player.GetComponent<Player_Health>();
     }
 
     void Start()
@@ -58,17 +58,19 @@ public class EnemyController : MonoBehaviour
         collider.size = new Vector2(collider.size.x * colliderMultiplier,
                                     collider.size.y * colliderMultiplier);
 
-        if (Input.touchCount == 1)
-        {
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            Vector2 touchPos = new Vector2(wp.x, wp.y);
-            if (collider == Physics2D.OverlapPoint(touchPos))
-            {
-                PlayerData.data.score += scoreValue;
-                Debug.Log(PlayerData.data.score);
-                Destroy(gameObject);
-            }
-        }
+        /* if (Input.touchCount == 1)
+         {
+             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+             Vector2 touchPos = new Vector2(wp.x, wp.y);
+             if (collider == Physics2D.OverlapPoint(touchPos))
+             {
+                 PlayerData.data.score += scoreValue;
+                 Debug.Log(PlayerData.data.score);
+                 Destroy(gameObject);
+             }
+         } */
+       
+
         // jos vihu on ollut elossa yli 5 sekuntia
         if (Time.time - initalizationTime > 5)
         {
@@ -76,23 +78,16 @@ public class EnemyController : MonoBehaviour
             {
                 Debug.Log("ampuu");
                 nextFire = Time.time + fireRate - PlayerData.data.encountersEncountered;
-                health.TakeDamage(10);
+                playerHealth.TakeDamage(10);
             }
         }
 
 
     }
-/*
-    void OnMouseDown()
+
+    void OnHit()
     {
-        // tuhoaa vihollisen
-        if (Input.GetMouseButtonDown(0))
-        {
-            PlayerData.data.score += scoreValue;
-            Debug.Log(PlayerData.data.score);
-            PlayerData.data.enemiesKilled += 1;
-            Destroy(gameObject);
-        }
+
     }
-*/
+
 }
