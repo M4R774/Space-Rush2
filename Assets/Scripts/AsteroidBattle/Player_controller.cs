@@ -70,7 +70,7 @@ public class Player_controller : MonoBehaviour
 				Mathf.Clamp (GetComponent<Rigidbody2D>().position.y, boundary.yMin, boundary.yMax)
 			);
 
-		// Näppäimiståkontrollit(liikkuu koko ajan taakseppäin jos alusta ei liikuta)
+		// Näppäimistökontrollit(liikkuu koko ajan taakseppäin jos alusta ei liikuta)
         movex = Input.GetAxis("Horizontal");
         movey = Input.GetAxis("Vertical");
         GetComponent<Rigidbody2D>().velocity = new Vector2(movex * Speed, movey * Speed * 4/3 - Speed/4);

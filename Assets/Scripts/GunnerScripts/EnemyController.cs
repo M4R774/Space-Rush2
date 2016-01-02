@@ -10,10 +10,8 @@ public class EnemyController : MonoBehaviour
     public Sprite sprite;
     public float fireRate;
     private float nextFire;
-    private float health;
     private float initalizationTime;
     private float originalScale; // tähän tallenetaan vihollisen alkuperäinen koko jota käytetään damage todennäköisyyksissä
-    private Vector2 position;
     private GameObject player;
     private Player_Health playerHealth;
     private Transform childSprite;
@@ -51,12 +49,12 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        childSprite.localScale = new Vector3(childSprite.localScale.x * scaleMultiplier,
-                                             childSprite.localScale.y * scaleMultiplier,
+        childSprite.localScale = new Vector3(childSprite.localScale.x + scaleMultiplier,
+                                             childSprite.localScale.y + scaleMultiplier,
                                                       0f);
         BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
-        collider.size = new Vector2(collider.size.x * colliderMultiplier,
-                                    collider.size.y * colliderMultiplier);
+        collider.size = new Vector2(collider.size.x + colliderMultiplier,
+                                    collider.size.y + colliderMultiplier);
 
         /* if (Input.touchCount == 1)
          {
