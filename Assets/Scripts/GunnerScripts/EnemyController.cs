@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-/* vielä gaympaa koodia */ 
+/* vielä gaympaa koodia */
+/* GAYYYY */ 
 public class EnemyController : MonoBehaviour
 {
 
