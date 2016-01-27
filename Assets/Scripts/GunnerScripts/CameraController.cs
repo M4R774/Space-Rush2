@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     public Vector3 endMarker;
     public float speed = 1.0f;
     public float journeyLength;
+    public int scoreValue;
 
     private Vector2 moveDistance;
     private float startTime;
@@ -36,48 +37,28 @@ public class CameraController : MonoBehaviour
         }
         // ympyrän säde jonko sisällä kamera liikkuu
         r = 6;
-        
         borderCollider = GameObject.FindGameObjectWithTag("Boundary").GetComponent<CircleCollider2D>();
-        int i = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
         cameraCollider = GetComponentInChildren<CircleCollider2D>();
-        //Hiiri controllit joissa ongelmana cameran nykiminen joka johtuu todennäköisesti epätarkkuuksista pyöristyksissä
-        /*if (Input.GetMouseButtonDown(0))
-         {
-             Vector3 mousePosition = Input.mousePosition;
-             startMarker = Camera.main.transform.position;
-             endMarker = Camera.main.ScreenToWorldPoint(mousePosition);
-             x = Mathf.Clamp(endMarker.x, -1 * Mathf.Sqrt(Mathf.Pow(r, 2) - Mathf.Pow(endMarker.y, 2)), Mathf.Sqrt(Mathf.Pow(r, 2) - Mathf.Pow(endMarker.y, 2)));
-             y = Mathf.Clamp(endMarker.y, -1 * Mathf.Sqrt(Mathf.Pow(r, 2) - Mathf.Pow(endMarker.x, 2)), Mathf.Sqrt(Mathf.Pow(r, 2) - Mathf.Pow(endMarker.x, 2)));
-             endMarker.z = -10;
-             endMarker.x = x;
-             endMarker.y = y;
-             journeyLength = Vector3.Distance(startMarker, endMarker);
-             float distCovered = (Time.time - startTime) * speed;
-             float fracJourney = distCovered / journeyLength;
-             transform.position = Vector3.Lerp(startMarker, endMarker, fracJourney);
-
-         } */
-
         // Kosketuscontrollit joita ei ole testattu, scripti löydetty stack overflowsta
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
             transform.Translate(-touchDeltaPosition.x * speed, -touchDeltaPosition.y * speed, 0);
         }
-
         //Näppäimistökontrollit(testikäyttöön)
-        // huom ainoa controlli skeema joka käyttää rigidbodya aluksen liikuttamiseen
+        //huom ainoa controlli skeema joka käyttää rigidbodya aluksen liikuttamiseen
         movex = Input.GetAxis("Horizontal");
         movey = Input.GetAxis("Vertical");
         GetComponent<Rigidbody2D>().velocity = new Vector2(movex * speed, movey * speed * 4 / 3);
 
         if (cameraCollider.IsTouching(borderCollider))
             Debug.Log("Hei Me Kosketaan");
+
         // tarkastaa onko tähtäimessä vihollisia
         checkForHits();
 
@@ -94,6 +75,7 @@ public class CameraController : MonoBehaviour
         if (hit.collider != null && hit.collider.CompareTag("enemy")) // nyt ei tuhota cameraCollideria
         {
             // tällä hetkellä raa asti tuhotaan viholilnen johon osuttiin johon osuttiin
+            PlayerData.data.score += scoreValue;
             Destroy(hit.collider.gameObject);
         }
     }

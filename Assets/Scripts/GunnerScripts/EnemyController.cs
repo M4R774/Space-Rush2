@@ -49,8 +49,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        childSprite.localScale = new Vector3(childSprite.localScale.x + scaleMultiplier,
-                                             childSprite.localScale.y + scaleMultiplier,
+       transform.localScale = new Vector3(transform.localScale.x + scaleMultiplier,
+                                             transform.localScale.y + scaleMultiplier,
                                                       0f);
         BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
         collider.size = new Vector2(collider.size.x + colliderMultiplier,
