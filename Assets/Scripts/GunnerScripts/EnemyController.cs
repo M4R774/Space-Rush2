@@ -2,6 +2,7 @@
 using System.Collections;
 /* vielä gaympaa koodia */
 /* GAYYYY */ 
+/* tämä projekti on hävytön */
 public class EnemyController : MonoBehaviour
 {
 
