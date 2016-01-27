@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/* vielä gaympaa koodia */ 
 public class EnemyController : MonoBehaviour
 {
 
